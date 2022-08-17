@@ -1,13 +1,13 @@
 const app = require('express')()
 const consign = require('consign')
-const db = require('./config/db') // IMPORTANDO CONFIGURAÇÃO DE CONEXÃO COM O BANCO DE DADOS
+const db = require('./config/db')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
 require('./config/mongodb')
 
 app.use(cors())
-app.db = db // ATRIBUINDO O KNEX CONIGURADO NA VARIÁVEL DB PARA USO NO APP(EXPRESS)
+app.db = db 
 app.mongoose = mongoose
 
 consign()
@@ -19,6 +19,6 @@ consign()
   .then("config/routes.js")
   .into(app);
 
-app.listen(3030, () => {
+app.listen(process.env.PORT || 3030, () => {
   console.log("Backend executando");
 });
