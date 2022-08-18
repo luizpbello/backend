@@ -1,12 +1,9 @@
-const { MONGO_URL } = require('../.env')
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/pet_stat',{useNewUrlParser:true, useUnifiedTopology: true} )
+    .catch(e => {
+        const msg = 'ERRO: Não foi possível conectar ao MongoDB!'
+        console.log('\x1b[41m%s\x1b[37m', msg, '\x1b[0m')
+    })
 
-const mongoose = require("mongoose");
-mongoose
-  .connect(
-    MONGO_URL,
-    { useNewUrlParser: true, useUnifiedTopology: true }
-  )
-  .catch((e) => {
-    const msg = "ERRO: Não foi possível conectar ao MongoDB!";
-    console.log("\x1b[41m%s\x1b[37m", msg, "\x1b[0m");
-  });
+
+    
