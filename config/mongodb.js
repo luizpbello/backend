@@ -1,4 +1,4 @@
-const { MONGO_URL } = require("../.env");
+
 
 const mongoose = require("mongoose");
 mongoose
